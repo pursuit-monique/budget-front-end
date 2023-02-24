@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+
+import NavBar from "./components/NavBar";
+import Index from "./components/Index";
+import Show from "./components/Show";
+import Edit from "./components/Edit";
+import New from "./components/New";
+
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  const [total, setTotal] = useState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar total={total} />
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={<Index setTotal={setTotal} total={total} />}
+          ></Route>
+          <Route path="/transaction/:id" element={<Show />}></Route>
+          <Route path="/transaction/:id/edit" element={<Edit />}></Route>
+          <Route path="/New" element={<New />}></Route>
+        </Routes>
+      </Router>
+    </>
   );
 }
 
