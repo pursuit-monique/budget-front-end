@@ -24,7 +24,7 @@ function App() {
           ></Route>
           <Route path="/transaction/:id" element={<Show />}></Route>
           <Route path="/transaction/:id/edit" element={<Edit />}></Route>
-          <Route path="/New" element={<New />}></Route>
+          <Route path="/transactions/new" element={<New />}></Route>
         </Routes>
       </Router>
     </>
