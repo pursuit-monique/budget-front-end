@@ -15,7 +15,7 @@ export default function New (){
     useEffect(() => {
         axios.get(`${API}/transactions/${id}`).then((response) => {
           setTransaction(response.data);
-          console.log(new Date(transaction.date).toLocaleDateString())
+          // console.log(new Date(transaction.date).toLocaleDateString())
         });
       }, [id]);
 
