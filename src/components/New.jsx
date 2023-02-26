@@ -15,8 +15,10 @@ export default function New (){
 
         function formHandler(event){
             event.preventDefault();
-            axios.post(`${API}/transactions/`, transaction);
-             navigate(`/`)
+            axios.post(`${API}/transactions/`, transaction)
+             .then(response =>{
+              navigate(`/`)
+             }) 
         };
 
       
